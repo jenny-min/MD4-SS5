@@ -33,4 +33,9 @@ public class OrderController {
     public ResponseEntity<List<Order>> getByCustomerName(@RequestParam("customerName") String customerName) {
         return new ResponseEntity<>(orderService.getOrdersByCustomerName(customerName), HttpStatus.OK);
     }
+
+    @GetMapping("/sort")
+    public ResponseEntity<List<Order>> getAllOrdersSorted(@RequestParam("sortBy") String sortBy,  @RequestParam("dir") String dir) {
+        return new ResponseEntity<>(orderService.getAllOrdersSorted(sortBy, dir), HttpStatus.OK);
+    }
 }
