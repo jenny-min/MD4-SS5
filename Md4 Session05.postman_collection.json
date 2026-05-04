@@ -1,0 +1,199 @@
+{
+  "info": {
+    "_postman_id": "fff1514b-be38-4234-9a7f-6ae5770632e5",
+    "name": "Md4 Session05",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "18119106",
+    "_collection_link": "https://go.postman.co/collection/18119106-fff1514b-be38-4234-9a7f-6ae5770632e5?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get All Orders",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get By Status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/orders/searchStatus?status=PENDING",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "orders",
+            "searchStatus"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "PENDING"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get By Customer Name",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/orders/searchByCustomer?customerName=Vu Thi F",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "orders",
+            "searchByCustomer"
+          ],
+          "query": [
+            {
+              "key": "customerName",
+              "value": "Vu Thi F"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Orders Sorted",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/orders/sort?sortBy=totalPrice&dir=desc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "orders",
+            "sort"
+          ],
+          "query": [
+            {
+              "key": "sortBy",
+              "value": "totalPrice"
+            },
+            {
+              "key": "dir",
+              "value": "desc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Orders Paged",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/orders/paging?page=1&size=5",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "orders",
+            "paging"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "size",
+              "value": "5"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Find Order High Price",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/orders/findOrderHighPrice",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "orders",
+            "findOrderHighPrice"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Find All And Search",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/orders/findAllAndSearch?page=2&size=5",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "orders",
+            "findAllAndSearch"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "2"
+            },
+            {
+              "key": "size",
+              "value": "5"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
