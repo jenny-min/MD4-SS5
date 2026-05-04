@@ -11,4 +11,8 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     List<Order> findByStatus(String status);
     //Lấy danh sách đơn hàng theo tên khách hàng
     List<Order> findByCustomerNameContaining(String name);
+
+    //câu lệnh JPQL truy vấn lấy về danh sách đơn hàng có tổng tiền lớn hơn tổng tiền trung bình của tháng hiện tại
+    @Query("from Order o where o.totalPrice > (select avg(o2.totalPrice) from Order o2 where month(o2.createdAt) = month(now()))")
+    List<Order> findOrderHighPrice();
 }

@@ -37,4 +37,8 @@ public class OrderService {
         Pageable pageable = PageRequest.of(page, size, Sort.by("createdAt").descending());
         return orderRepository.findAll(pageable);
     }
+
+    public List<Order> findOrderHighPrice() {
+        return orderRepository.findOrderHighPrice();
+    }
 }

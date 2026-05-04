@@ -44,4 +44,9 @@ public class OrderController {
     public ResponseEntity<Page<Order>> findByPage(@RequestParam("page") int page , @RequestParam("size") int size){
         return new ResponseEntity<>(orderService.getOrdersPaged(page,size),HttpStatus.OK);
     }
+
+    @GetMapping("/findOrderHighPrice")
+    public ResponseEntity<List<Order>> findByOrderHighPrice() {
+        return new ResponseEntity<>(orderService.findOrderHighPrice(), HttpStatus.OK);
+    }
 }
