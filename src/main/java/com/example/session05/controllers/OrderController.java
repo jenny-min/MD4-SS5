@@ -3,6 +3,7 @@ package com.example.session05.controllers;
 import com.example.session05.models.entity.Order;
 import com.example.session05.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,5 +38,10 @@ public class OrderController {
     @GetMapping("/sort")
     public ResponseEntity<List<Order>> getAllOrdersSorted(@RequestParam("sortBy") String sortBy,  @RequestParam("dir") String dir) {
         return new ResponseEntity<>(orderService.getAllOrdersSorted(sortBy, dir), HttpStatus.OK);
+    }
+
+    @GetMapping("/paging")
+    public ResponseEntity<Page<Order>> findByPage(@RequestParam("page") int page , @RequestParam("size") int size){
+        return new ResponseEntity<>(orderService.getOrdersPaged(page,size),HttpStatus.OK);
     }
 }
