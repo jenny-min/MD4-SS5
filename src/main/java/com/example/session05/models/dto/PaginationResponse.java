@@ -1,5 +1,7 @@
 package com.example.session05.models.dto;
 
+import org.springframework.data.domain.Page;
+
 import java.util.List;
 
 public class PaginationResponse<T> {
@@ -8,7 +10,7 @@ public class PaginationResponse<T> {
     private long totalElement;
     private int currentPage;
 
-    public PaginationResponse() {
+    public PaginationResponse(Page<OrderSummary> page) {
     }
 
     public PaginationResponse(List<T> data, int totalPage, long totalElement, int currentPage) {

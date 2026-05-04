@@ -1,9 +1,13 @@
 package com.example.session05.controllers;
 
+import com.example.session05.models.dto.OrderSummary;
+import com.example.session05.models.dto.PaginationResponse;
 import com.example.session05.models.entity.Order;
 import com.example.session05.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,5 +52,11 @@ public class OrderController {
     @GetMapping("/findOrderHighPrice")
     public ResponseEntity<List<Order>> findByOrderHighPrice() {
         return new ResponseEntity<>(orderService.findOrderHighPrice(), HttpStatus.OK);
+    }
+
+    @GetMapping("/findAllAndSearch")
+    public ResponseEntity<PaginationResponse<OrderSummary>> findAllAndSearch(@RequestParam("page") int page, @RequestParam("size") int size){
+        Pageable pageable = PageRequest.of(page,size);
+        return new ResponseEntity<>(orderService.findAllAndPagination(pageable),HttpStatus.OK);
     }
 }

@@ -1,5 +1,7 @@
 package com.example.session05.services;
 
+import com.example.session05.models.dto.OrderSummary;
+import com.example.session05.models.dto.PaginationResponse;
 import com.example.session05.models.entity.Order;
 import com.example.session05.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +42,12 @@ public class OrderService {
 
     public List<Order> findOrderHighPrice() {
         return orderRepository.findOrderHighPrice();
+    }
+
+    public PaginationResponse<OrderSummary> findAllAndPagination(Pageable pageable){
+        Page<OrderSummary> page = orderRepository.findAllAndPagination(pageable);
+        PaginationResponse paginationResponse = new PaginationResponse(page);
+
+        return paginationResponse;
     }
 }
